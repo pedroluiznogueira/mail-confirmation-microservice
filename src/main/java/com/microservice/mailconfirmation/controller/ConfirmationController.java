@@ -1,7 +1,7 @@
 package com.microservice.mailconfirmation.controller;
 
-import com.microservice.mailconfirmation.model.UserConfirmation;
-import com.microservice.mailconfirmation.service.UserConfirmationService;
+import com.microservice.mailconfirmation.model.User;
+import com.microservice.mailconfirmation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class ConfirmationController {
 
     @Autowired
-    private UserConfirmationService userConfirmationService;
+    private UserService userConfirmationService;
 
     @PostMapping("confirm")
-    public UserConfirmation persistUserConfirmation(@RequestBody UserConfirmation userConfirmation) {
+    public User persistUserConfirmation(@RequestBody User userConfirmation) {
         return userConfirmationService.persistUserConfirmation(userConfirmation);
     }
 }
